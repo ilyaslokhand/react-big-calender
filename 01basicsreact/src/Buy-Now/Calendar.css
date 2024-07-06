@@ -1,0 +1,51 @@
+.custome-calender .rbc-button-link span {
+  font-size: 20px !important;
+}
+
+.rbc-header {
+  background-color: rgba(92, 163, 221, 0.425);
+  color: white;
+}
+
+/* .rbc-time-slot {
+  margin: 20px;
+} */
+
+.rbc-event {
+  padding: 0px !important;
+  border-radius: 0px !important;
+  border: none !important;
+  /* background-color: transparent !important; */
+}
+
+.rbc-label {
+  color: rgb(5, 0, 0);
+}
+
+.rbc-time-gutter {
+  background-color: rgba(92, 163, 221, 0.425);
+}
+
+.rbc-events-containor {
+  width: 100% !important;
+}
+
+.rbc-timeslot-group {
+  min-height: 120px !important;
+}
+
+.custom-calendar {
+  position: relative;
+}
+
+.event-form-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
