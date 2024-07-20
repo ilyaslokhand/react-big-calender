@@ -34,18 +34,67 @@
   min-height: 120px !important;
 }
 
-.custom-calendar {
-  position: relative;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.event-form-popup {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  border: 1px solid #ccc;
+.modal-content {
+  background-color: transparent;
   padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.modal-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+}
+
+.modal-form label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.modal-form input,
+.modal-form select {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.modal-form button {
+  width: calc(50% - 5px);
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.modal-form button.secondary {
+  background-color: gray;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
 }
