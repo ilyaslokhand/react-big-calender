@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import App from "./App.jsx";
 import Layout from "./layout.jsx";
-import About from "./About-us/Aboutus.jsx";
-import Contact from "./Contact-us/Contact.jsx";
 import BuyNow from "./Buy-Now/BuyNow.jsx";
 import ShowMore from "./Show-More/ShowMore.jsx";
 import Register from "./Register/Register.jsx";
 import Login from "./Login/Login.jsx";
 import ProtectRoute from "./services/ProtectRoute.jsx";
+import Home from "./Home.jsx";
+
+// import App from "./App.jsx";
 
 const router = createBrowserRouter(
   [
@@ -22,7 +22,7 @@ const router = createBrowserRouter(
       element: <Login />,
     },
     {
-      path: "buy",
+      path: "/buy", // Ensure the path here is "/buy"
       element: (
         <ProtectRoute>
           <BuyNow />
@@ -30,7 +30,7 @@ const router = createBrowserRouter(
       ),
     },
     {
-      path: "show",
+      path: "/show",
       element: (
         <ProtectRoute>
           <ShowMore />
@@ -47,15 +47,7 @@ const router = createBrowserRouter(
       children: [
         {
           path: "homepage",
-          element: <App />,
-        },
-        {
-          path: "about-us",
-          element: <About />,
-        },
-        {
-          path: "contact-us",
-          element: <Contact />,
+          element: <Home />,
         },
       ],
     },

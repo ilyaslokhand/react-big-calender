@@ -1,15 +1,28 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import Header from "./Header/Header";
 
-const Layout = () => {
+import Home from "./Home.jsx";
+import Header from "./Header/Header.jsx";
+import Sidebar from "./Sidebar.jsx";
+import { useState } from "react";
+import "./index.css";
+
+function Layout() {
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
+
+  const OpenSidebar = () => {
+    setOpenSidebarToggle(!openSidebarToggle);
+  };
+
   return (
-    <>
-      <Header />
-
-      <Outlet />
-    </>
+    <div className="grid-container">
+      <Header OpenSidebar={OpenSidebar} />
+      <Sidebar
+        openSidebarToggle={openSidebarToggle}
+        OpenSidebar={OpenSidebar}
+      />
+      <Home />
+    </div>
   );
-};
+}
 
 export default Layout;

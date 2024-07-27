@@ -9,6 +9,7 @@ Modal.setAppElement("#root");
 const localizer = momentLocalizer(moment);
 
 const BuyNow = (props) => {
+  const { isRoomSelection } = props;
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectStartDate, setSelectStartDate] = useState("");
   const [selectEndDate, setSelectEndDate] = useState("");
@@ -84,7 +85,9 @@ const BuyNow = (props) => {
       start: selectStartDate,
       end: selectEndDate,
       allDay: true,
-      title: `Garden ${garden} ${name}`,
+      title: `${
+        isRoomSelection ? `Room ${garden}` : `Garden ${garden}`
+      } ${name}`,
     };
     if (isUpdating) {
       setEvents(
@@ -101,6 +104,8 @@ const BuyNow = (props) => {
       <Calendar
         localizer={localizer}
         events={events}
+        view="month"
+        views={["month"]}
         startAccessor="start"
         endAccessor="end"
         style={{ margin: 50, display: modalIsOpen ? "none" : "block" }}
@@ -151,12 +156,24 @@ const BuyNow = (props) => {
                 />
               </label>
               <label>
-                Select Garden:
+                {/* Select {isRoomSelection ? "Room" : "Garden"}: */}
                 <select onChange={handleGardenChange} value={garden} required>
-                  <option value="">Select Garden</option>
-                  <option value="1">Garden 1</option>
-                  <option value="2">Garden 2</option>
-                  <option value="3">Garden 3</option>
+                  <option value="">
+                    Select {isRoomSelection ? "Room" : "Garden"}
+                  </option>
+                  {isRoomSelection ? (
+                    <>
+                      <option value="1">Room 1</option>
+                      <option value="2">Room 2</option>
+                      <option value="3">Room 3</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="1">Garden 1</option>
+                      <option value="2">Garden 2</option>
+                      <option value="3">Garden 3</option>
+                    </>
+                  )}
                 </select>
               </label>
               <label>
