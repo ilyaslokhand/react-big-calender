@@ -1,5 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  Registernow,
+  Password,
+  password,
+  LoginNow,
+} from "../Components/String";
+import MyButton from "../Components/MyButton";
+import InputComponent from "../Components/InputComponent";
+import styles from "../Register/Register.module.css";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -39,18 +48,18 @@ const Login = () => {
   };
 
   return (
-    <div className="register-page">
-      <div className="left-side">
-        <div className="register-container">
-          <div className="conatinor-Register">
-            <div className="header-Register">
-              <div className="text-Register">Log-In</div>
-              <div className="underline-Register"></div>
+    <div className={styles.registerpage}>
+      <div className={styles.leftside}>
+        <div className={styles.registercontainer}>
+          <div className={styles.conatinorRegister}>
+            <div className={styles.header}>
+              <div className={styles.text}>Log-In</div>
+              <div className={styles.underline}></div>
             </div>
-            <div className="inputs-Register">
-              <div className="input-Register ">
+            <div className={styles.inputs}>
+              <div className={styles.input}>
                 <img src="../../assets/password.png" alt="password icon" />
-                <input
+                <InputComponent
                   type="number"
                   name="Number"
                   placeholder="Mobile Number"
@@ -58,7 +67,7 @@ const Login = () => {
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="input-Register eye-open-img">
+              <div className={`${styles.input} ${styles.eyeopenimg}`}>
                 <img
                   src={
                     isPasswordVisible
@@ -66,33 +75,33 @@ const Login = () => {
                       : "../../assets/eye-close.png"
                   }
                   alt="toggle visibility"
-                  className="eyeopen"
+                  className={styles.eyeopen}
                   onClick={togglePasswordVisibility}
                 />
                 <img src="../../assets/password.png" alt="password icon" />
-                <input
-                  type={isPasswordVisible ? "text" : "password"}
-                  name="password"
-                  placeholder="Password"
+                <InputComponent
+                  type={isPasswordVisible ? text : password}
+                  name={password}
+                  placeholder={Password}
                   value={input.password}
                   onChange={handleInputChange}
                 />
               </div>
             </div>
-            <p className="error-message">{error}</p>
-            <button className="submit-containor" onClick={handlelogin}>
-              Login Now
-            </button>
-            <span className="Spanregister">
+            <p className={styles.errormessage}>{error}</p>
+            <MyButton className={styles.submitcontainor} onClick={handlelogin}>
+              {LoginNow}
+            </MyButton>
+            <span className={styles.Spanregister}>
               Don't Have An Account?
-              <span className="span-reg" onClick={HandleRegisteration}>
-                Register Now
+              <span className={styles.spanreg} onClick={HandleRegisteration}>
+                {Registernow}
               </span>
             </span>
           </div>
         </div>
       </div>
-      <div className="right-side">
+      <div className={styles.rightside}>
         <img src="../../assets/login.webp" alt="Background" />
       </div>
     </div>

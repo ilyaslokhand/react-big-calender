@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Layout from "./layout.jsx";
-import BuyNow from "./Buy-Now/BuyNow.jsx";
-import ShowMore from "./Show-More/ShowMore.jsx";
 import Register from "./Register/Register.jsx";
 import Login from "./Login/Login.jsx";
 import ProtectRoute from "./services/ProtectRoute.jsx";
-import Home from "./Home.jsx";
-
-// import App from "./App.jsx";
+import Home from "./Home/Home.jsx";
+import Garden from "./GardenBooking/Garden.jsx";
+import Room from "./RoomBooking/Room.jsx";
+import TodaysBooking from "./BookingPages/TodaysBooking.jsx";
+import CheckOut from "./BookingPages/CheckOut.jsx";
+import Layout from "./Layout/layout.jsx";
 
 const router = createBrowserRouter(
   [
@@ -22,18 +22,34 @@ const router = createBrowserRouter(
       element: <Login />,
     },
     {
-      path: "/buy", // Ensure the path here is "/buy"
+      path: "/Garden",
       element: (
         <ProtectRoute>
-          <BuyNow />
+          <Garden />
         </ProtectRoute>
       ),
     },
     {
-      path: "/show",
+      path: "/Room",
       element: (
         <ProtectRoute>
-          <ShowMore />
+          <Room />
+        </ProtectRoute>
+      ),
+    },
+    {
+      path: "/TodaysBooking",
+      element: (
+        <ProtectRoute>
+          <TodaysBooking />
+        </ProtectRoute>
+      ),
+    },
+    {
+      path: "/CheckOut",
+      element: (
+        <ProtectRoute>
+          <CheckOut />
         </ProtectRoute>
       ),
     },

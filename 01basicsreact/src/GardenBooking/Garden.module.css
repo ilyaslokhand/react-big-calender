@@ -1,0 +1,94 @@
+@import "../vars.css";
+
+body,
+html {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.rbc-header {
+  background-color: var(--color-text);
+  color: rgb(0, 0, 0);
+  /* padding: 20px; */
+}
+
+.modaloverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalcontent {
+  background-color: var(--color-text);
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modalform {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modalform label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.modalform input,
+.modalform select {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.modalform button {
+  width: calc(50% - 5px);
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--color-btn);
+  color: var(--color-text);
+
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.modalform button.secondary {
+  background-color: var(--color-secondarybtn);
+}
+
+.buttongroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rbc-calendar {
+  height: 500px !important;
+}
+.customcalendar {
+  height: 600px; /* Fixed height */
+  overflow: hidden; /* Prevent scrolling */
+  padding-bottom: 20px;
+  margin-top: 20px;
+}

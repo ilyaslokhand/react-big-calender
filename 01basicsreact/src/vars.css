@@ -1,0 +1,12 @@
+:root {
+  --color-text: #ffffff;
+  --color-booking: #90ee90;
+  --color-checkout: #ffffe0;
+  --color-totalbooking: #add8e6;
+  --color-earning: hsl(351, 100%, 86%);
+  --primary-color: #000000;
+  --span-color: #ffe4c4;
+  --secondary-color: #ff0000;
+  --color-btn: #007bff;
+  --color-secondarybtn: #808080;
+}

@@ -1,19 +1,20 @@
-body {
-  height: 100vh;
-  width: 100%;
+@import "../vars.css";
+
+body,
+html {
   margin: 0px;
   padding: 0px;
-  font-family: "poppins";
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.register-page {
+.registerpage {
   display: flex;
   height: 100vh;
   width: 100%;
-  background-color: rgb(204, 249, 255);
 }
 
-.left-side {
+.leftside {
   width: 50%;
   background: linear-gradient(to top, rgb(13, 57, 65), rgb(76, 108, 114));
   display: flex;
@@ -21,76 +22,74 @@ body {
   align-items: center;
 }
 
-.right-side {
+.rightside {
   width: 50%;
 }
 
-.right-side img {
+.rightside img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.register-container {
+.registercontainer {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
 }
 
-.conatinor-Register {
+.conatinorRegister {
   display: flex;
   flex-direction: column;
   margin: auto;
   padding-bottom: 30px;
-  /* background: linear-gradient(to top, rgb(13, 57, 65), rgb(76, 108, 114)); */
   width: 100%;
-  /* border-radius: 20px; */
 }
 
-.header-Register {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 9px;
-  color: white;
+  color: var(--color-text);
   margin-top: 30px;
 }
 
-.text-Register {
-  color: white;
+.text {
+  color: var(--color-text);
   font-size: 40px;
   font-weight: 700;
 }
 
-.underline-Register {
+.underline {
   width: 61px;
   height: 6px;
   border-radius: 10px;
-  background-color: white;
+  background-color: var(--color-text);
 }
 
-.inputs-Register {
+.inputs {
   display: flex;
   flex-direction: column;
   gap: 25px;
   margin-top: 55px;
 }
 
-.input-Register {
+.input {
   display: flex;
   align-items: center;
-  background: rgb(255, 255, 255);
+  background: var(--color-text);
   width: 100%;
   height: 80px;
   border-radius: 10px;
   margin: auto;
 }
 
-.input-Register img {
+.input img {
   margin: 0px 20px;
 }
 
-.input-Register input {
+.input input {
   border: 0px;
   outline: 0px;
   background: transparent;
@@ -99,17 +98,17 @@ body {
   width: 100%;
 }
 
-.get-otp-container {
+.getotpcontainer {
   position: relative;
 }
 
-.get-otp {
+.getotp {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 10px;
   font-size: 15px;
-  color: rgb(255, 255, 255);
+  color: var(--color-text);
   background: linear-gradient(to top, rgb(13, 57, 65), rgb(76, 108, 114));
   padding: 15px 15px;
   border-radius: 10px;
@@ -117,8 +116,8 @@ body {
   font-weight: 700;
 }
 
-.submit-containor {
-  background: rgb(255, 255, 255);
+.submitcontainor {
+  background: var(--color-text);
   width: 200px;
   height: 70px;
   text-align: center;
@@ -130,7 +129,7 @@ body {
   border-radius: 50px;
 }
 
-.eye-open-img {
+.eyeopenimg {
   position: relative;
 }
 
@@ -140,7 +139,7 @@ body {
   transform: translateY(-50%);
   right: -5px;
   font-size: 15px;
-  color: rgb(255, 255, 255);
+  color: var(--color-text);
   padding: 15px 15px;
   border-radius: 10px;
   cursor: pointer;
@@ -153,23 +152,23 @@ body {
   text-align: center;
   margin-top: 10px;
   padding: 10px;
-  color: white;
+  color: var(--color-text);
   font-weight: 500;
 }
 
-.span-reg {
+.spanreg {
   font-size: 20px;
   margin-top: 10px;
   margin-left: 10px;
-  color: bisque;
+  color: var(--span-color);
   cursor: pointer;
   font-weight: 500;
 }
 
-.error-message {
+.errormessage {
   text-align: center;
   margin-top: 10px;
-  color: white;
+  color: var(--color-text);
   font-size: 15px;
   font-weight: 500;
 }

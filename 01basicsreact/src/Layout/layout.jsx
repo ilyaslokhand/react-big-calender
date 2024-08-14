@@ -1,10 +1,9 @@
 import React from "react";
-
-import Home from "./Home.jsx";
-import Header from "./Header/Header.jsx";
-import Sidebar from "./Sidebar.jsx";
+import Sidebar from "../Sidebar/Sidebar.jsx";
+import Header from "../Header/Header.jsx";
 import { useState } from "react";
-import "./index.css";
+import Home from "../Home/Home.jsx";
+import styles from "./Layout.module.css";
 
 function Layout() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
@@ -14,7 +13,7 @@ function Layout() {
   };
 
   return (
-    <div className="grid-container">
+    <div className={styles.gridcontainer}>
       <Header OpenSidebar={OpenSidebar} />
       <Sidebar
         openSidebarToggle={openSidebarToggle}

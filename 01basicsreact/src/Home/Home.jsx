@@ -1,5 +1,8 @@
 import React from "react";
-import "./index.css";
+import { useState } from "react";
+import { useEffect } from "react";
+import moment from "moment";
+import styles from "./Home.module.css";
 
 import {
   BsFillArchiveFill,
@@ -24,13 +27,43 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
+  const [todaysBooking, setTodaysBooking] = useState(0);
+  const [totalBooking, setTotalBooking] = useState(0);
+  const [checkOut, setCheckOut] = useState(0);
+
+  useEffect(() => {
+    const storedEvents = JSON.parse(localStorage.getItem("events") || "[]");
+    const today = moment().startOf("day");
+
+    const todaysBookingCount = storedEvents.filter((event) =>
+      moment(event.start).isSame(today, "day")
+    ).length;
+
+    const totalBookingCount = storedEvents.length;
+
+    const checkOutCount = storedEvents.filter((event) =>
+      moment(event.end).isSame(today, "day")
+    ).length;
+
+    setTodaysBooking(todaysBookingCount);
+    setTotalBooking(totalBookingCount);
+    setCheckOut(checkOutCount);
+  }, []);
 
   const HandleGardenBooking = () => {
-    navigate("/buy");
+    navigate("/Garden");
   };
 
   const HandleRoomBooking = () => {
-    navigate("/show");
+    navigate("/Room");
+  };
+
+  const HandleTodaysBooking = () => {
+    navigate("/TodaysBooking");
+  };
+
+  const HandleCheckOutBooking = () => {
+    navigate("/CheckOut");
   };
 
   const data = [
@@ -79,43 +112,52 @@ function Home() {
   ];
 
   return (
-    <main className="main-container">
-      <div className="main-title">
+    <main className={styles.maincontainer}>
+      <div className={styles.maintitle}>
         <h3>DASHBOARD</h3>
+        <div className={styles.buttons}>
+          <button className={styles.roombtn} onClick={HandleRoomBooking}>
+            Room Booking
+          </button>
+          <button className={styles.gardenbtn} onClick={HandleGardenBooking}>
+            Garden Booking
+          </button>
+        </div>
       </div>
 
-      <div className="main-cards">
-        <div className="card">
-          <div className="card-inner">
-            <h3>PRODUCTS</h3>
-            <BsFillArchiveFill className="card_icon" />
+      <div className={styles.maincards}>
+        <div className={styles.card} onClick={HandleTodaysBooking}>
+          <div className={styles.cardinner}>
+            <h3>Todays Booking</h3>
+            <BsFillArchiveFill className={styles.cardicon} />
           </div>
-          <h1>300</h1>
+          <h1>{todaysBooking}</h1>
         </div>
-        <div className="card">
-          <div className="card-inner">
-            <h3>CATEGORIES</h3>
-            <BsFillGrid3X3GapFill className="card_icon" />
+        <div className={styles.card} onClick={HandleCheckOutBooking}>
+          <div className={styles.cardinner}>
+            <h3>CheckOut</h3>
+            <BsFillGrid3X3GapFill className={styles.cardicon} />
           </div>
-          <h1>12</h1>
+          <h1>{checkOut}</h1>
         </div>
-        <div className="card">
-          <div className="card-inner">
-            <h3>CUSTOMERS</h3>
-            <BsPeopleFill className="card_icon" />
+
+        <div className={styles.card}>
+          <div className={styles.cardinner}>
+            <h3>Total-Booking</h3>
+            <BsPeopleFill className={styles.cardicon} />
           </div>
-          <h1>33</h1>
+          <h1>{totalBooking}</h1>
         </div>
-        <div className="card">
-          <div className="card-inner">
-            <h3>ALERTS</h3>
-            <BsFillBellFill className="card_icon" />
+        <div className={styles.card}>
+          <div className={styles.cardinner}>
+            <h3>Earnings</h3>
+            <BsFillBellFill className={styles.cardicon} />
           </div>
           <h1>42</h1>
         </div>
       </div>
 
-      <div className="charts">
+      <div className={styles.charts}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             width={500}
@@ -164,14 +206,6 @@ function Home() {
             <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
           </LineChart>
         </ResponsiveContainer>
-      </div>
-      <div className="button-booking">
-        <button className="room-booking" onClick={HandleRoomBooking}>
-          Room Booking
-        </button>
-        <button className="Garden-booking" onClick={HandleGardenBooking}>
-          Garden Booking
-        </button>
       </div>
     </main>
   );

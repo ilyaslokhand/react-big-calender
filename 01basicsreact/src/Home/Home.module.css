@@ -1,0 +1,146 @@
+@import "../vars.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+}
+
+.buttons {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+.roombtn {
+  background-color: var(--color-booking);
+}
+
+.roombtn,
+.gardenbtn {
+  border-radius: 10px;
+
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  padding: 20px;
+  margin-right: 60px;
+}
+.gardenbtn {
+  background-color: var(--color-earning);
+  padding: 10px;
+}
+
+/* Main  */
+.maincontainer {
+  grid-area: main;
+  padding: 20px 20px;
+  color: rgba(0, 0, 0, 0.95);
+  /* height: 100vh; */
+  overflow: auto;
+}
+
+.maintitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.maincards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.card h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.cardinner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardinner > .cardicon {
+  font-size: 25px;
+}
+
+.card:first-child {
+  background-color: var(--color-booking);
+  width: 70%;
+}
+
+.card:nth-child(2) {
+  background-color: var(--color-checkout);
+  width: 70%;
+}
+
+.card:nth-child(3) {
+  background-color: var(--color-totalbooking);
+  width: 70%;
+}
+
+.card:nth-child(4) {
+  background-color: var(--color-earning);
+  width: 70%;
+}
+
+.cardinner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardinner > .cardicon {
+  font-size: 25px;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 60px;
+  height: 300px;
+}
+
+.maincontainer,
+.charts,
+.maincards,
+.card {
+  width: 100%;
+}
+
+/* End Main  */
+
+/* Medium <= 992px */
+
+/* Small <= 768px */
+
+@media screen and (max-width: 768px) {
+  .maincards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+}
+
+/* Extra Small <= 576px */

@@ -1,6 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Register.css";
+import styles from "./Register.module.css";
+import InputComponent from "../Components/InputComponent";
+import {
+  text,
+  LoginNow,
+  ALREADYLOGINNOW,
+  Registernow,
+  Password,
+  password,
+  EMAIL,
+  EMAILADDRESS,
+} from "../Components/String";
+import MyButton from "../Components/MyButton";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -60,39 +72,39 @@ const Register = () => {
   };
 
   return (
-    <div className="register-page">
-      <div className="left-side">
-        <div className="register-container">
-          <div className="conatinor-Register">
-            <div className="header-Register">
-              <div className="text-Register">Sign-up</div>
-              <div className="underline-Register"></div>
+    <div className={styles.registerpage}>
+      <div className={styles.leftside}>
+        <div className={styles.registercontainer}>
+          <div className={styles.conatinorRegister}>
+            <div className={styles.header}>
+              <div className={styles.text}>Sign-up</div>
+              <div className={styles.underline}></div>
             </div>
-            <div className="inputs-Register">
-              <div className="input-Register">
+            <div className={styles.inputs}>
+              <div className={styles.input}>
                 <img src="../../assets/person.png" alt="person icon" />
-                <input
-                  type="text"
+                <InputComponent
+                  type={text}
                   name="name"
                   placeholder="Name"
                   value={input.name}
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="input-Register">
+              <div className={styles.input}>
                 <img src="../../assets/email.png" alt="email icon" />
-                <input
-                  type="email"
+                <InputComponent
+                  type={EMAIL}
                   name="email"
-                  placeholder="Email Id"
+                  placeholder={EMAILADDRESS}
                   value={input.email}
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="input-Register get-otp-container">
+              <div className={`${styles.input} ${styles.getotpcontainer}`}>
                 <img src="../../assets/password.png" alt="password icon" />
-                <span className="get-otp">Get OTP</span>
-                <input
+                <span className={styles.getotp}>Get OTP</span>
+                <InputComponent
                   type="number"
                   name="Number"
                   placeholder="Mobile Number"
@@ -100,7 +112,7 @@ const Register = () => {
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="input-Register eye-open-img">
+              <div className={`${styles.input} ${styles.eyeopenimg}`}>
                 <img
                   src={
                     isPasswordVisible
@@ -108,33 +120,33 @@ const Register = () => {
                       : "../../assets/eye-close.png"
                   }
                   alt="toggle visibility"
-                  className="eyeopen"
+                  className={styles.eyeopen}
                   onClick={togglePasswordVisibility}
                 />
                 <img src="../../assets/password.png" alt="password icon" />
-                <input
-                  type={isPasswordVisible ? "text" : "password"}
-                  name="password"
-                  placeholder="Password"
+                <InputComponent
+                  type={isPasswordVisible ? text : password}
+                  name={password}
+                  placeholder={Password}
                   value={input.password}
                   onChange={handleInputChange}
                 />
               </div>
             </div>
-            <p className="error-message">{error}</p>
-            <button className="submit-containor" onClick={handleSubmit}>
-              Register Now
-            </button>
-            <span className="Spanregister">
-              Already Have An Account?
-              <span className="span-reg" onClick={handleLoginRedirect}>
-                Login Now
+            <p className={styles.errormessage}>{error}</p>
+            <MyButton className={styles.submitcontainor} onClick={handleSubmit}>
+              {Registernow}
+            </MyButton>
+            <span className={styles.Spanregister}>
+              {ALREADYLOGINNOW}
+              <span className={styles.spanreg} onClick={handleLoginRedirect}>
+                {LoginNow}
               </span>
             </span>
           </div>
         </div>
       </div>
-      <div className="right-side">
+      <div className={styles.rightside}>
         <img src="../../assets/login.webp" alt="Background" />
       </div>
     </div>

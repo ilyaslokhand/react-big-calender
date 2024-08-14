@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import styles from "./Header.module.css";
 
 import {
   BsFillBellFill,
@@ -11,11 +11,11 @@ import {
 
 function Header({ OpenSidebar }) {
   return (
-    <header className="header">
-      <div className="menu-icon">
+    <header className={styles.header}>
+      <div className={styles.menuicon}>
         <BsJustify className="icon" onClick={OpenSidebar} />
       </div>
-      <div className="header-left">
+      <div className={styles.hedaerleft}>
         <BsSearch className="icon" />
       </div>
       <div className="header-right">
